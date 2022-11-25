@@ -1,14 +1,14 @@
 Package: EMuse
-Title: What the Package Does (One Line, Title Case)
+Title: Light Metagenomic Networks Utility
 Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+Authors@R: c(
+    person("Alessandro", "Fuschi", role = c("aut", "cre"), email="alessandro.fuschi2@unibo.it"),
+    person("Alessandra", "Merlotti", role = "aut"))
+Description: Lightweight collection of functions for analyzing metagenomic networks developed for the E-Muse class.
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.2
-Depends: 
-    R (>= 2.10)
+Depends:
+  R (>= 2.10)
 LazyData: true
