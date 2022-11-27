@@ -21,7 +21,7 @@
 cluster_signed_louvain <- function(graph, OS="Linux"){
   
   #Check Graph
-  OS <- match.arg("Linux","Windows","Mac")
+  OS <- match.arg(OS,c("Linux","Windows","Mac"))
   if(!is.weighted(graph)) stop("graph must be weighted graph")
   if(is.directed(graph))  stop("graph must be undirected")
   if(file.exists("graph.net")) file.remove("graph.net")
