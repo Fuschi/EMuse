@@ -21,7 +21,7 @@ cluster_signed_louvain <- function(graph){
   #End Checks
   
   #get path of executable Communities_Detection.exe
-  path <- system.file("exec", package="MetaGenomicR", mustWork=TRUE)
+  path <- system.file("exec", package="EMuse", mustWork=TRUE)
   path <- paste(path,"/",sep="")
   
   #write graph in pajek format as request from executable
