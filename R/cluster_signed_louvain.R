@@ -54,7 +54,7 @@ cluster_signed_louvain <- function(graph, OS="Linux"){
   
   #make communities detection
   if(OS=="Windows"){
-    system(cmd,show.output.on.console=FALSE)
+    system(cmd,ignore.stdout=TRUE)
   } else {
     system(cmd,ignore.stdout=TRUE,ignore.stderr=TRUE)
   }
