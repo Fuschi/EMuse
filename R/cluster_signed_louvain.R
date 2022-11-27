@@ -2,20 +2,29 @@
 #' Get Communities of a Signed Weighted Graph
 #'
 #'@description The algorithm tries to find dense subgraph, also called 
-#' communities in graphs via optimization of a signed definition of modularity
+#' communities via optimization of a signed definition of modularity
 #' score.
 #' 
 #'@param graph weighted undirected network belong to \code{\link{igraph}} class.
+#'@param OS string with the operating system running. Possible choices are 
+#'"Linux","Windows","Mac" (default "Linux").
 #'
-#'@importFrom igraph graph_from_adjacency_matrix write_graph make_clusters is.weighted is.directed as_adjacency_matrix make_clusters
+#'@return \code{\link{communities}} igraph object able to manage to communities
+#'graph info. The unique difference from igraph routine is the treatment with 
+#'the isolated nodes. In this case all isolated nodes are classified in the
+#'community \code{'0'} and not as different communities of size one
+#'
+#'@importFrom igraph graph_from_adjacency_matrix write_graph make_clusters is.weighted is.directed as_adjacency_matrix make_clusters sizes
 #'@importFrom stringr str_split
 #'
 #'@export
-cluster_signed_louvain <- function(graph){
+cluster_signed_louvain <- function(graph, OS="Linux"){
   
   #Check Graph
+  OS <- match.arg("Linux","Windows","Mac")
   if(!is.weighted(graph)) stop("graph must be weighted graph")
   if(is.directed(graph))  stop("graph must be undirected")
+  if(file.exists("graph.net")) file.remove("graph.net")
   
   adj <- as_adjacency_matrix(graph, attr="weight", sparse=FALSE)
   #End Checks
@@ -34,7 +43,13 @@ cluster_signed_louvain <- function(graph){
   path.result <- paste(path, "res.txt", sep="")
   
   #save command for the execution
-  cmd <- paste(path,"Communities_Detection.exe none WS l 1",sep="")
+  if(OS=="Linux"){
+    cmd <- paste(path,"Communities_Detection_Linux.exe none WS l 1",sep="")
+  } else if(OS=="Windows"){
+    cmd <- paste(path,"Communities_Detection_Windows.exe none WS l 1",sep="")
+  } else if(OS=="Mac"){
+    cmd <- paste(path,"Communities_Detection_Mac.exe none WS l 1",sep="")
+  }
   cmd <- paste(cmd, path.graph, path.result)
   
   #make communities detection
@@ -72,10 +87,15 @@ cluster_signed_louvain <- function(graph){
   file.remove(path.graph)
   file.remove(path.result)
   
-  
-  #return the results as communities structure of igraph package
-  return(make_clusters(graph=graph,
+  res <- make_clusters(graph=graph,
                        membership=comm,
                        algorithm="signed weights louvain",
-                       modularity=modularity))
+                       modularity=modularity)
+  
+  isolated.membership <- which(sizes(res)==1)
+  res$membership[res$membership %in% isolated.membership] <- 0
+  
+  
+  #return the results as communities structure of igraph package
+  return(res)
 }

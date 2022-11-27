@@ -4,13 +4,22 @@
 \alias{cluster_signed_louvain}
 \title{Get Communities of a Signed Weighted Graph}
 \usage{
-cluster_signed_louvain(graph)
+cluster_signed_louvain(graph, OS = "Linux")
 }
 \arguments{
 \item{graph}{weighted undirected network belong to \code{\link{igraph}} class.}
+
+\item{OS}{string with the operating system running. Possible choices are
+"Linux","Windows","Mac" (default "Linux").}
+}
+\value{
+\code{\link{communities}} igraph object able to manage to communities
+graph info. The unique difference from igraph routine is the treatment with
+the isolated nodes. In this case all isolated nodes are classified in the
+community \code{'0'} and not as different communities of size one
 }
 \description{
 The algorithm tries to find dense subgraph, also called
-communities in graphs via optimization of a signed definition of modularity
+communities via optimization of a signed definition of modularity
 score.
 }
