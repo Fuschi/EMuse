@@ -5,7 +5,7 @@
 #' communities in graphs via optimization of a signed definition of modularity
 #' score.
 #' 
-#' @param graph weighted undirected network belong to \code{\link{igraph}} class.
+#'@param graph weighted undirected network belong to \code{\link{igraph}} class.
 #'
 #'@importFrom igraph graph_from_adjacency_matrix write_graph make_clusters is.weighted is.directed as_adjacency_matrix make_clusters
 #'@importFrom stringr str_split
