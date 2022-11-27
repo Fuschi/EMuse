@@ -28,6 +28,6 @@ adjacency_edge_density <- function(corr, edge.density=.05){
   # Take the Absolute Min Values
   th.value <- xv.sort[round(length(xv.sort)*edge.density)]
   
-  adj <- X * (abs(X)>=th.value)
+  adj <- corr * (abs(corr)>=th.value)
   return(adj)
 }  
