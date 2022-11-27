@@ -53,8 +53,11 @@ cluster_signed_louvain <- function(graph, OS="Linux"){
   cmd <- paste(cmd, path.graph, path.result)
   
   #make communities detection
-  system(cmd, ignore.stdout=TRUE, ignore.stderr=TRUE)
-  
+  if(OS=="Windows"){
+    system(cmd,show.output.on.console=FALSE)
+  } else {
+    system(cmd,ignore.stdout=TRUE,ignore.stderr=TRUE)
+  }
   #open file of results
   res.file = file(path.result, "r")
   
