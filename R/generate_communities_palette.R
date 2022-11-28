@@ -1,4 +1,4 @@
-#' Generate communities palette color
+#' Generate communities color palette 
 #' 
 #' @description Create a named character vector with the color palette 
 #' associated with the communities. The function is based on the
@@ -7,12 +7,12 @@
 #' @param N (Required) integer with the wanted number if distinct color.
 #' 
 #' @examples
-#' palette_communities(8)
+#' generate_communities_palette(8)
 #' 
 #' @importFrom randomcoloR distinctColorPalette
 #' 
 #' @export
-generate_palette_communities <- function(N){
+generate_communities_palette <- function(N){
   
   if(!is.numeric(N) | round(N)!=(N) | N<=0) stop("N must be integer positive number")
   
