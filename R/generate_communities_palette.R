@@ -18,6 +18,7 @@ generate_communities_palette <- function(N, seed=123){
   if(!is.numeric(N) | round(N)!=(N) | N<=0) stop("N must be integer positive number")
   if(!is.numeric(seed))  stop("seed must be numeric")
   
+  set.seed(seed)
   palette <- distinctColorPalette(k=N)
   names(palette) <- 1:N
   palette <- c("0"="#FFFFFF",palette)

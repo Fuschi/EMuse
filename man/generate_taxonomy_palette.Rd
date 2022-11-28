@@ -19,6 +19,7 @@ associated with the taxonomy classification. The function is based on the
 \code{\link{distinctColorPalette}}.
 }
 \examples{
-generate_taxonomy_palette(c("Proteobacteria","Firmicutes","Proteobacteria","Bacteroidetes","Firmicutes","Proteobacteria"))
+generate_taxonomy_palette(c("Proteobacteria","Firmicutes",
+"Proteobacteria","Bacteroidetes","Firmicutes","Proteobacteria"))
 
 }

@@ -10,7 +10,8 @@
 #' @param seed random seed for reproducibility.
 #' 
 #' @examples
-#' generate_taxonomy_palette(c("Proteobacteria","Firmicutes","Proteobacteria","Bacteroidetes","Firmicutes","Proteobacteria"))
+#' generate_taxonomy_palette(c("Proteobacteria","Firmicutes",
+#' "Proteobacteria","Bacteroidetes","Firmicutes","Proteobacteria"))
 #' 
 #' @importFrom randomcoloR distinctColorPalette
 #' 
