@@ -5,6 +5,7 @@
 #' function \code{\link{distinctColorPalette}}.
 #' 
 #' @param N (Required) integer with the wanted number if distinct color.
+#' @param seed random seed for reproducibility.
 #' 
 #' @examples
 #' generate_communities_palette(8)
@@ -12,9 +13,10 @@
 #' @importFrom randomcoloR distinctColorPalette
 #' 
 #' @export
-generate_communities_palette <- function(N){
+generate_communities_palette <- function(N, seed=123){
   
   if(!is.numeric(N) | round(N)!=(N) | N<=0) stop("N must be integer positive number")
+  if(!is.numeric(seed))  stop("seed must be numeric")
   
   palette <- distinctColorPalette(k=N)
   names(palette) <- 1:N

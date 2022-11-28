@@ -13,6 +13,7 @@ layout_signed <- function(graph, seed=123){
   #Check Graph
   if(!is.weighted(graph)) stop("graph must be weighted graph")
   if(is.directed(graph))  stop("graph must be undirected")
+  if(!is.numeric(seed))  stop("seed must be numeric")
   
   graph.sub <- subgraph.edges(graph=graph,
                               eids=which(E(graph)$weight>0),

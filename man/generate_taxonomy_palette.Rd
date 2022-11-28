@@ -4,12 +4,14 @@
 \alias{generate_taxonomy_palette}
 \title{Generate taxonomy color palette}
 \usage{
-generate_taxonomy_palette(taxaID)
+generate_taxonomy_palette(taxaID, seed = 123)
 }
 \arguments{
 \item{taxaID}{(Required) character vector with the taxonomic IDs.
 For a number of unique elements greater than 40, the colors may no longer be
 clearly distinguishable.}
+
+\item{seed}{random seed for reproducibility.}
 }
 \description{
 Create a named character vector with the color palette

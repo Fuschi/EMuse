@@ -4,10 +4,12 @@
 \alias{generate_communities_palette}
 \title{Generate communities color palette}
 \usage{
-generate_communities_palette(N)
+generate_communities_palette(N, seed = 123)
 }
 \arguments{
 \item{N}{(Required) integer with the wanted number if distinct color.}
+
+\item{seed}{random seed for reproducibility.}
 }
 \description{
 Create a named character vector with the color palette
