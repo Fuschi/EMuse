@@ -6,15 +6,6 @@
 #' A matrix with 125 rows/sample and 1280 columns/species:
 "bacteria"
 
-#' Samples metadata
-#'
-#'
-#' @format ## `metadata`
-#' A data.frame with the experimental variables of the samples. 
-#' The columns contain the geographical sites and the date.
-#' 
-"metadata"
-
 #' Taxonomic Classification
 #'
 #'
